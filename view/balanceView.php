@@ -68,16 +68,20 @@
 <body>
 	<div class="profile-container">
 	    <h1 class="profile-title">Balance Check</h1>
-
+	
 	    <?php 
-	        $x = $_SESSION['balanceCheck'];
+	        if(isset($x) && !empty($x)) {
 	    ?>
-
 	    <table class="profile-table">
 	        <tr><th>Username</th><td><?php echo $x[0]['username']; ?></td></tr>
 	        <tr><th>Montly Salary</th><td><?php echo $x[0]['monthly_salary']; ?></td></tr>
-	        <tr><th>Current Avaiable Balance</th><td><?php echo $x[0]['current_balance']; ?></td></tr>
+	        <tr><th>Current Available Balance</th><td><?php echo $x[0]['current_balance']; ?></td></tr>
 	    </table>
+	    <?php 
+	        } else {
+	            echo "No result Found";
+	        }
+	    ?>
 	</div>
 </body>
 </html>
